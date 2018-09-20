@@ -1,0 +1,49 @@
+language:
+  - cpp
+
+sudo: true
+
+cache:
+  directories:
+    - linux_dependencies
+    - osx_dependencies
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode9.3
+
+
+    - os: linux
+      env: >
+      compiler: gcc
+      addons:
+        apt:
+          sources:
+            - boost-latest
+            - ubuntu-toolchain-r-test
+          packages:
+            - libboost1.55-dev
+            - libboost-filesystem1.55-dev
+            - libboost-iostreams1.55-dev
+            - libboost-program-options1.55-dev
+            - libboost-regex1.55-dev
+            - libboost-log1.55-dev
+            - ninja-build
+
+
+before_script:
+  - |
+    if [[ $TRAVIS_OS_NAME == "linux" ]]; then
+        echo "installing dependencies for linux"
+    fi
+  - |
+    if [[ $TRAVIS_OS_NAME == "osx" ]]; then
+        echo "installing dependencies for osx"
+    fi
+
+
+script:
+  - mkdir -p build
+  - cd build
+  - cd ..
