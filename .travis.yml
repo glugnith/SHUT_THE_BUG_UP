@@ -36,10 +36,12 @@ before_script:
   - |
     if [[ $TRAVIS_OS_NAME == "linux" ]]; then
         echo "installing dependencies for linux"
+        ./install_dependencies.sh
     fi
   - |
     if [[ $TRAVIS_OS_NAME == "osx" ]]; then
         echo "installing dependencies for osx"
+        ./install_dependencies.sh osx
     fi
 
 
