@@ -1,7 +1,5 @@
-#include <srb/cheema.hpp>
+#include <srb/decompressor.hpp>
 
-#include <boost/program_options.hpp>
-#include <string>
 
 namespace po = boost::program_options;
 
@@ -11,10 +9,10 @@ po::options_description build_command_line_options()
     po::options_description description("Usage: vcf-validator [OPTIONS] [< input_file]\nAllowed options");
 
     description.add_options()
-        (srb::cheema::HELP_OPTION, "Display this help")
-        (srb::cheema::VERSION_OPTION, "Display version of the validator")
-        (srb::cheema::INPUT_OPTION, po::value<std::string>()->default_value(srb::cheema::STDIN), "Path to the input file, or stdin")
-        (srb::cheema::OUTDIR_OPTION, po::value<std::string>()->default_value(""), "Output directory")
+        (srb::HELP_OPTION, "Display this help")
+        (srb::VERSION_OPTION, "Display version of the validator")
+        (srb::INPUT_OPTION, po::value<std::string>()->default_value(srb::STDIN), "Path to the input file, or stdin")
+        (srb::OUTDIR_OPTION, po::value<std::string>()->default_value(""), "Output directory")
     ;
 
     return description;
@@ -22,7 +20,7 @@ po::options_description build_command_line_options()
 
 int check_command_line_options(po::variables_map const & vm, po::options_description const & desc)
 {
-    if (vm.count(srb::cheema::HELP)) {
+    if (vm.count(srb::HELP)) {
         std::cout << desc << std::endl;
         return -1;
     }
@@ -67,17 +65,16 @@ int main (int argc, char** argv) {
     int check_options = check_command_line_options(vm, desc);
     if (check_options < 0) { return 0; }
 
-    auto path = vm[srb::cheema::INPUT].as<std::string>();
-    auto outdir = vm[srb::cheema::OUTDIR].as<std::string>();
-    auto outdir = get_output_path(vm[srb::cheema::OUTDIR].as<std::string>(), path);
+    auto path = vm[srb::INPUT].as<std::string>();
+    auto outdir = get_output_path(vm[srb::OUTDIR].as<std::string>(), path);
 
     boost::iostreams::filtering_istream in;
     boost::iostreams::filtering_istream cinn(std::cin);
-    srb::cheema::create_uncompressed_stream(cinn,"",in);
+    srb::create_uncompressed_stream(cinn,"",in);
 
     std::vector<char> line;
-    while (srb::cheema::readline(in, line).size() != 0) {
-        srb::cheema::print_line(line);
+    while (srb::readline(in, line).size() != 0) {
+        srb::print_line(line);
     }
     return 0;
 }

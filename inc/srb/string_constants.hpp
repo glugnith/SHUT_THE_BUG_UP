@@ -21,8 +21,6 @@
 
 namespace srb
 {
-  namespace cheema
-  {
     const char STDIN[] = "stdin";
     const char STDOUT[] = "stdout";
     const char WARNING_LEVEL[] = "warning";
@@ -60,7 +58,6 @@ namespace srb
     const std::string Z = ".Z";
     const std::string ZIP = ".zip";
     const std::string ZLIB = ".z";
-  }
 }
 
 #endif // SRB_STRING_CONSTANTS_HPP
