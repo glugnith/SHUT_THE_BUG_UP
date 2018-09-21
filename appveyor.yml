@@ -9,6 +9,8 @@ init:
 build_script:
   - cmd: cmake -DCMAKE_BUILD_TYPE=Release -G "NMake Makefiles" .
   - cmd: nmake
+  - cmd: bin\srb_decompressor < test\compressed_files\hello.cpp.gz
+  - cmd: bin\srb_decompressor < test\compressed_files\hello.cpp.bz2
 
 artifacts:
   - path: bin\srb_decompressor.exe

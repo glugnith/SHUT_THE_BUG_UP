@@ -51,3 +51,6 @@ script:
   - cmake ..
   - make
   - cd ..
+  - ls build/bin
+  - ./build/bin/srb_decompressor < test/compressed_files/hello.cpp.gz
+  - ./build/bin/srb_decompressor < test/compressed_files/hello.cpp.bz2
