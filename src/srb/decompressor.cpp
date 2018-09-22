@@ -73,10 +73,10 @@ namespace srb
         };
 
         for (auto & type : types) {
-            if(line.begin()==NULL;)
-            {cout<<"empty file";
-             break;}
-            if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
+           // if(line.begin()==NULL;)
+           // {cout<<"empty file";
+            // break;}
+            if (std::equal(type.first.begin(), type.first.end(), line.begin())&&(line.begin!='\0'||type.first.begin!='\0')) {
                 
                 std::cout << "detected " << type.second
                 
