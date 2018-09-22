@@ -72,13 +72,13 @@ namespace srb
             { { 120, -100 }, ZLIB }
         };
 
-        /*for (auto & type : types) {
+        for (auto & type : types) {
             if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
                 std::cout << "detected " << type.second
                     << " compression" << std::endl;
                 return type.second;
             }
-        }*/
+        }
         return NO_EXT;
     }
 
