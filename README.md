@@ -10,7 +10,7 @@ Branch | Linux / macOS | Windows
 :----: | :-----------: | :-----:
 Master | [![Build Status](https://travis-ci.org/glugnith/SHUT_THE_BUG_UP.svg?branch=master)](https://travis-ci.org/glugnith/SHUT_THE_BUG_UP) | [![Build status](https://ci.appveyor.com/api/projects/status/e4es1mne0j0mkg8n/branch/master?svg=true)](https://ci.appveyor.com/project/srbcheema1/shut-the-bug-up/branch/master)
 
-## Software Freedom Day @ 2k18
+## Software Freedom Day 2k18 @NITH
 
 ![SFD](images/sfd_events.jpeg)
 
