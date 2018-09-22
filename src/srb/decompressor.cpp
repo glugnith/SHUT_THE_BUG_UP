@@ -73,8 +73,13 @@ namespace srb
         };
 
         for (auto & type : types) {
+            if(line.begin()==NULL;)
+            {cout<<"empty file";
+             break;}
             if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
+                
                 std::cout << "detected " << type.second
+                
                     << " compression" << std::endl;
                 return type.second;
             }
