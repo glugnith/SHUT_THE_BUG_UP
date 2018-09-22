@@ -5,12 +5,12 @@ namespace po = boost::program_options;
 
 po::options_description build_command_line_options()
 {
-    std::string version = "vcf_validator";
-    po::options_description description("Usage: vcf-validator [OPTIONS] [< input_file]\nAllowed options");
+    std::string version = "srb_decompressor";
+    po::options_description description("Usage: srb_decompressor [OPTIONS] [< input_file]\nAllowed options");
 
     description.add_options()
         (srb::HELP_OPTION, "Display this help")
-        (srb::VERSION_OPTION, "Display version of the validator")
+        (srb::VERSION_OPTION, "Display version of the decompressor")
         (srb::INPUT_OPTION, po::value<std::string>()->default_value(srb::STDIN), "Path to the input file, or stdin")
         (srb::OUTDIR_OPTION, po::value<std::string>()->default_value(""), "Output directory")
     ;
