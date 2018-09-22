@@ -2,14 +2,6 @@
 
 namespace srb
 {
-    int size_of_vector(std::vector<int> myvector){
-      int sum = 0;
-      while (!myvector.empty()) {
-          sum = sum + myvector.back();
-          myvector.pop_back();
-      }
-      return sum;
-    }
     void print_line(std::vector<char> &line)
     {
         std::string str(line.begin(), line.end());
@@ -81,7 +73,7 @@ namespace srb
         };
 
         for (auto & type : types) {
-            if(size_of_vector(line)<5){
+            if(line.size()<5){
               std::cout<<"Size is small";
               break;
             }
