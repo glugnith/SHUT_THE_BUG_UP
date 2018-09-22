@@ -73,11 +73,10 @@ namespace srb
         };
 
         for (auto & type : types) {
-            if(line.size()<5){
+            if(line.size()<types.size()){
               std::cout<<"Size is small";
-              break;
             }
-            if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
+            else (std::equal(type.first.begin(), type.first.end(), line.begin())) {
                 std::cout << "detected " << type.second
                     << " compression" << std::endl;
                 return type.second;
