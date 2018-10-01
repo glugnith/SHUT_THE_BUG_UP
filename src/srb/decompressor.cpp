@@ -71,14 +71,19 @@ namespace srb
             { { 80, 75, 3, 4 }, ZIP },
             { { 120, -100 }, ZLIB }
         };
-
+        if(line.begin().empty())
+        {
+          std::cout<<"File was empty";
+        }
+        else{
         for (auto & type : types) {
+          
             if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
                 std::cout << "detected " << type.second
                     << " compression" << std::endl;
                 return type.second;
             }
-        }
+        }}
         return NO_EXT;
     }
 
