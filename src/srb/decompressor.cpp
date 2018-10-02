@@ -83,7 +83,7 @@ namespace srb
                         << " compression" << std::endl;
                     return type.second;
                 }
-	    }
+            }
         }
         return NO_EXT;
     }
