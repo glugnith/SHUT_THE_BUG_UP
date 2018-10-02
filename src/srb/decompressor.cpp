@@ -71,9 +71,9 @@ namespace srb
             { { 80, 75, 3, 4 }, ZIP },
             { { 120, -100 }, ZLIB }
         };
-        
+	
 	/*
-	* If the first line of the file has less than 5 characters, 
+	* If the first line of the file has less than 5 characters,
 	* std::equal will cause a segmentation fault.
 	*/
 	if (line.size() < 5) {
