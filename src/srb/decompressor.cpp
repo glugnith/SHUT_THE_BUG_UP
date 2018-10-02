@@ -72,13 +72,13 @@ namespace srb
             { { 120, -100 }, ZLIB }
         };
 	
-	/*
-	* If the first line of the file has less than 5 characters,
-	* std::equal will cause a segmentation fault.
-	*/
-	if (line.size() < 5) {
-	    return NO_EXT;
-	}
+        /*
+        * If the first line of the file has less than 5 characters,
+        * std::equal will cause a segmentation fault.
+        */
+        if (line.size() < 5) {
+            return NO_EXT;
+        }
         for (auto & type : types) {
             if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
                 std::cout << "detected " << type.second
