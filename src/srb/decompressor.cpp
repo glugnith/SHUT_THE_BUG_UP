@@ -71,21 +71,21 @@ namespace srb
             { { 80, 75, 3, 4 }, ZIP },
             { { 120, -100 }, ZLIB }
         };
-	
-        /*
-        * If the first line of the file has less than 5 characters,
-        * std::equal will cause a segmentation fault.
-        */
-        if (line.size() < 5) {
-            return NO_EXT;
-        }
+
         for (auto & type : types) {
-            if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
-                std::cout << "detected " << type.second
-                    << " compression" << std::endl;
-                return type.second;
-            }
+            /*
+            * If the number of characters are less than characters required to detect a type,
+            * std::equal will cause a segmentation fault.
+            */		
+            if(line.size() >= type.size()) {
+	        if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
+                    std::cout << "detected " << type.second
+                        << " compression" << std::endl;
+                    return type.second;
+                }
+	    }
         }
+        return NO_EXT;
     }
 
     std::vector<char> & readline(std::istream & stream, std::vector<char> & container)
