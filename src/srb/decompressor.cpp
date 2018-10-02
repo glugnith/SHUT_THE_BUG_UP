@@ -77,8 +77,8 @@ namespace srb
             * If the number of characters are less than characters required to detect a type,
             * std::equal will cause a segmentation fault.
             */		
-            if(line.size() >= type.size()) {
-	        if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
+            if(line.size() >= type.first.size()) {
+                if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
                     std::cout << "detected " << type.second
                         << " compression" << std::endl;
                     return type.second;
