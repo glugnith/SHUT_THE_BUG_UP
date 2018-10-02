@@ -73,10 +73,16 @@ namespace srb
         };
 
         for (auto & type : types) {
-            if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
-                std::cout << "detected " << type.second
-                    << " compression" << std::endl;
-                return type.second;
+            /*
+            * If the number of characters are less than characters required to detect a type,
+            * std::equal will cause a segmentation fault.
+            */		
+            if(line.size() >= type.first.size()) {
+                if (std::equal(type.first.begin(), type.first.end(), line.begin())) {
+                    std::cout << "detected " << type.second
+                        << " compression" << std::endl;
+                    return type.second;
+                }
             }
         }
         return NO_EXT;
