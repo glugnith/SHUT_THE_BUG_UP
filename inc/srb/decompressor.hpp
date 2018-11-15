@@ -19,6 +19,14 @@
 
 namespace srb
 {
+
+    struct Hell {
+        int a;
+        int b;
+        
+        void print();
+    };
+
     void check_readability_of_file(const std::string & file_ext);
 
     std::vector<char> & readline(std::istream & stream, std::vector<char> & container);

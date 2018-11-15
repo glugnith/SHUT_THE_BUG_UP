@@ -76,5 +76,9 @@ int main (int argc, char** argv) {
     while (srb::readline(in, line).size() != 0) {
         srb::print_line(line);
     }
+
+    srb::Hell hell = srb::Hell();
+    hell.a = 1;
+
     return 0;
 }

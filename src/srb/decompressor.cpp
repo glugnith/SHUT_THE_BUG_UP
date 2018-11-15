@@ -98,4 +98,8 @@ namespace srb
         }
         return container;
     }
+
+    void Hell::print() {
+        std::cout << "a : " << a << ", b : " << b << std::endl;
+    }
 }
