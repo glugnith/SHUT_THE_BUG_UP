@@ -10,9 +10,29 @@ cache:
 
 matrix:
   include:
-    - os: osx
-      osx_image: xcode9.3
+    - stage: "Code Style"
+      os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-6.0
+            - ubuntu-toolchain-r-test
+          packages:
+            - clang-format-6.0
+      script:
+        - |
+            if [[ $TRAVIS_PULL_REQUEST != "false" ]]; then
+                # for pull requests check changes from last full branch till master
+                git --no-pager clang-format-6.0 master --diff
+            else
+                # for non-pull requests check only last commit changes
+                git --no-pager clang-format-6.0 HEAD~1 --diff
+            fi
+        - travis_terminate 0
 
+    - stage: "Supported Compilers"
+      os: osx
+      osx_image: xcode9.3
 
     - os: linux
       env: >
@@ -32,7 +52,7 @@ matrix:
             - ninja-build
 
 
-before_script:
+script:
   - |
     if [[ $TRAVIS_OS_NAME == "linux" ]]; then
         echo "installing dependencies for linux"
@@ -43,9 +63,6 @@ before_script:
         echo "installing dependencies for osx"
         ./install_dependencies.sh osx
     fi
-
-
-script:
   - mkdir -p build
   - cd build
   - cmake ..
