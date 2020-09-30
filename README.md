@@ -23,6 +23,6 @@ Master | [![Build Status](https://travis-ci.org/glugnith/SHUT_THE_BUG_UP.svg?bra
 [![Facebook](https://github.frapsoft.com/social/facebook.png)](https://www.facebook.com/glug.nith/)
 [![Github](https://github.frapsoft.com/social/github.png)](https://github.com/glugnith/)
 
-### Development by
+#### Development by
 
 Developer / Author: [Srb Cheema](https://github.com/srbcheema1/)
